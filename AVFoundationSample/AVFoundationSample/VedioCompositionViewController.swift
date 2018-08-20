@@ -101,16 +101,11 @@ class VedioCompositionViewController: UIViewController {
         } catch  {
             print("error=\(error)")
         }
-       
         
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
 //        let vedioName = dateFormatter.string(from: Date.init(timeIntervalSinceNow: 0) as Date)
-        
-        enum FileError:Error {
-            case removeFailure
-        }
         
         let url = URL.init(fileURLWithPath:NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]).appendingPathComponent("vedio", isDirectory: false).appendingPathExtension("mp4")
         
@@ -127,14 +122,15 @@ class VedioCompositionViewController: UIViewController {
         avAssertExporter?.outputURL = url
         avAssertExporter?.outputFileType = AVFileType.m4v
         
-        avAssertExporter?.exportAsynchronously(completionHandler: {[unowned self] in
+        avAssertExporter?.exportAsynchronously(completionHandler: {
+            [unowned self] in
 
             if avAssertExporter?.status == AVAssetExportSessionStatus.completed {
                 print("avAssertExporter completed")
                 
                if PHPhotoLibrary.authorizationStatus() == .authorized {
                  self.writeAssetToPhotosLibrary(at:(avAssertExporter?.outputURL)!)
-               }else {
+               } else {
                 PHPhotoLibrary.requestAuthorization({ (status) in
                     if status == .authorized {
                         self.writeAssetToPhotosLibrary(at:(avAssertExporter?.outputURL)!)
@@ -143,7 +139,7 @@ class VedioCompositionViewController: UIViewController {
                     }
                 })
             }
-            } else  if avAssertExporter?.status == AVAssetExportSessionStatus.failed {
+        } else  if avAssertExporter?.status == AVAssetExportSessionStatus.failed {
                 print("avAssertExporter failed ,error = \(String(describing: avAssertExporter?.error))")
             }
         })
