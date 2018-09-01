@@ -10,10 +10,13 @@
 import UIKit
 import AVFoundation
 import Photos
+import MBProgressHUD
+
+let keywindow:UIWindow = (UIApplication.shared.delegate?.window!)!
 
 class VedioCompositionViewController: UIViewController {
     
-    typealias avAssetLoadCompleteHandler = (_ avAsset:AVAsset)->()
+   typealias avAssetLoadCompleteHandler = (_ avAsset:AVAsset)->()
 
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var centerPlayButton: UIButton!
@@ -30,6 +33,7 @@ class VedioCompositionViewController: UIViewController {
     
     lazy var playerLayer:AVPlayerLayer = {
         let layer = AVPlayerLayer.init(player: player)
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         layer.frame = playerView.bounds
         return layer
     }()
@@ -40,6 +44,9 @@ class VedioCompositionViewController: UIViewController {
     
     var vedioDuration:CMTime?
     
+    
+    //    MARK: - viewController lifeCycle -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         playerView.layer.addSublayer(playerLayer)
@@ -49,6 +56,7 @@ class VedioCompositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        MBProgressHUD.showAdded(to: keywindow, animated: true)
         loadAssetAsynchronous(with: avAsset1) { [unowned self] (avAsset1) in
             self.loadAssetAsynchronous(with: self.avAsset2, completeHandler: { (avAsset2) in
                 self.startRecompositeAvasset(with:avAsset1,and:self.avAsset2)
@@ -102,6 +110,29 @@ class VedioCompositionViewController: UIViewController {
             print("error=\(error)")
         }
         
+        
+        let firstVedioCompositionInstruction = AVMutableVideoCompositionInstruction.init()
+        firstVedioCompositionInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, firstAssetVedioTrack.timeRange.duration)
+        let firstVedioLayerCompositionInstruction = AVMutableVideoCompositionLayerInstruction.init(assetTrack: firstAssetVedioTrack)
+        firstVedioLayerCompositionInstruction.setOpacityRamp(fromStartOpacity: 0.3, toEndOpacity: 1, timeRange: CMTimeRangeMake(kCMTimeZero, firstAssetVedioTrack.timeRange.duration))
+        firstVedioLayerCompositionInstruction.setTransformRamp(fromStart: CGAffineTransform.init(rotationAngle: CGFloat(90.0/360*CGFloat.pi)), toEnd: CGAffineTransform.identity, timeRange: CMTimeRangeMake(kCMTimeZero, firstAssetVedioTrack.timeRange.duration))
+        firstVedioCompositionInstruction.layerInstructions = [firstVedioLayerCompositionInstruction]
+        
+        let secondVedioCompositionInstruction = AVMutableVideoCompositionInstruction.init()
+        secondVedioCompositionInstruction.timeRange = CMTimeRangeMake(firstAssetVedioTrack.timeRange.duration, secondAssetVedioTrack.timeRange.duration + firstAssetVedioTrack.timeRange.duration)
+        let secondVedioLayerCompositionInstruction = AVMutableVideoCompositionLayerInstruction.init(assetTrack: secondAssetVedioTrack)
+        secondVedioLayerCompositionInstruction.setOpacityRamp(fromStartOpacity: 0.3, toEndOpacity: 1, timeRange: secondAssetVedioTrack.timeRange)
+        secondVedioLayerCompositionInstruction.setTransformRamp(fromStart: CGAffineTransform.init(rotationAngle: CGFloat(45/360*CGFloat.pi)), toEnd: CGAffineTransform.identity, timeRange: secondAssetVedioTrack.timeRange)
+        
+        secondVedioCompositionInstruction.layerInstructions = [secondVedioLayerCompositionInstruction]
+        
+        
+        let mutableVedioComposition = AVMutableVideoComposition.init()
+        mutableVedioComposition.instructions = [firstVedioCompositionInstruction,secondVedioCompositionInstruction]
+        mutableVedioComposition.renderSize = CGSize.init(width: 480, height: 960)
+        mutableVedioComposition.frameDuration = CMTimeMake(1, 30)
+        
+        
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
@@ -113,7 +144,7 @@ class VedioCompositionViewController: UIViewController {
             do {
                 try FileManager.default.removeItem(at: url)
                 print(" url = \(url) file exist")
-            }catch {
+            } catch {
                 print("removeItem fail ,error=\(error)")
             }
         }
@@ -121,12 +152,29 @@ class VedioCompositionViewController: UIViewController {
         let avAssertExporter = AVAssetExportSession.init(asset: mutableCompostion, presetName: AVAssetExportPresetMediumQuality)
         avAssertExporter?.outputURL = url
         avAssertExporter?.outputFileType = AVFileType.m4v
+        avAssertExporter?.videoComposition = mutableVedioComposition
         
         avAssertExporter?.exportAsynchronously(completionHandler: {
             [unowned self] in
-
+            
+            defer {
+                DispatchQueue.main.async {
+                    MBProgressHUD.hide(for: keywindow, animated: true)
+                }
+            }
+            
             if avAssertExporter?.status == AVAssetExportSessionStatus.completed {
                 print("avAssertExporter completed")
+                
+                let compositionAVasset = AVAsset.init(url: (avAssertExporter?.outputURL)!)
+                
+                self.loadAssetAsynchronous(with: compositionAVasset, completeHandler: { [unowned self] (avasset) in
+                    
+                    self.playItem = AVPlayerItem.init(asset: avasset)
+                    DispatchQueue.main.async {
+                        self.centerPlayButton.isEnabled = true
+                    }
+                })
                 
                if PHPhotoLibrary.authorizationStatus() == .authorized {
                  self.writeAssetToPhotosLibrary(at:(avAssertExporter?.outputURL)!)
@@ -163,5 +211,17 @@ class VedioCompositionViewController: UIViewController {
         }
         )
     }
+    
+    @IBAction func centerButtonIsTapped(_ sender: Any) {
+        
+        if player.rate == 0 {
+            player.play()
+        }else{
+            player.pause()
+        }
+        
+    }
+    
+    
 
 }

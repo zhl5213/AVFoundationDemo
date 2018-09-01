@@ -30,8 +30,8 @@ class VedioPlayController: UIViewController {
     
     let loadKeys = ["playable",
         "hasProtectedContent",
-        "availableMetadataFormats"
-        ]
+        "availableMetadataFormats"]
+    
     var vedioDuration:CMTime?
     
     

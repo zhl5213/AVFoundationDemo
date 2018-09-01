@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>need use media</string>
+	<key>NSCameraUsageDescription</key>
+	<string>need to access camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>need to access microphone</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>photo addtional use</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>need to use photos library</string>
 	<key>UILaunchStoryboardName</key>
@@ -43,5 +51,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>music use</string>
 </dict>
 </plist>

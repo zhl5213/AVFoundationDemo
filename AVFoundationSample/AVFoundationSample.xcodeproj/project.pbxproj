@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBB0427895A35D750E7691F9 /* Pods_AVFoundationSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06AC919DE6D8FCB11DDA72C /* Pods_AVFoundationSample.framework */; };
 		F405CD7F2127BA8E00E4C288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405CD7E2127BA8E00E4C288 /* AppDelegate.swift */; };
 		F405CD812127BA8E00E4C288 /* VedioPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405CD802127BA8E00E4C288 /* VedioPlayController.swift */; };
 		F405CD842127BA8E00E4C288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F405CD822127BA8E00E4C288 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		F4824D892129359000C0C0F6 /* TestVedio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4824D882129359000C0C0F6 /* TestVedio.mp4 */; };
 		F4824D8B21295CD200C0C0F6 /* VedioCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */; };
 		F4824D8D212990E800C0C0F6 /* TestVedio2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4824D8C212990E600C0C0F6 /* TestVedio2.mp4 */; };
+		F48A6069212A5182000D00E1 /* CameraCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A54C537978A96BE49D82C59B /* Pods-AVFoundationSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVFoundationSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AVFoundationSample/Pods-AVFoundationSample.release.xcconfig"; sourceTree = "<group>"; };
+		D934B7D75B6D4CB81158438B /* Pods-AVFoundationSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVFoundationSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVFoundationSample/Pods-AVFoundationSample.debug.xcconfig"; sourceTree = "<group>"; };
+		E06AC919DE6D8FCB11DDA72C /* Pods_AVFoundationSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVFoundationSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F405CD7B2127BA8E00E4C288 /* AVFoundationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVFoundationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F405CD7E2127BA8E00E4C288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F405CD802127BA8E00E4C288 /* VedioPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedioPlayController.swift; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		F4824D882129359000C0C0F6 /* TestVedio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestVedio.mp4; sourceTree = "<group>"; };
 		F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedioCompositionViewController.swift; sourceTree = "<group>"; };
 		F4824D8C212990E600C0C0F6 /* TestVedio2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestVedio2.mp4; sourceTree = "<group>"; };
+		F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCaptureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB0427895A35D750E7691F9 /* Pods_AVFoundationSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01EAF0C79408AA03FA533BB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E06AC919DE6D8FCB11DDA72C /* Pods_AVFoundationSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB6C45957BB3EEE442367F0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D934B7D75B6D4CB81158438B /* Pods-AVFoundationSample.debug.xcconfig */,
+				A54C537978A96BE49D82C59B /* Pods-AVFoundationSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F405CD722127BA8E00E4C288 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +117,8 @@
 				F405CD952127BA9000E4C288 /* AVFoundationSampleTests */,
 				F405CDA02127BA9000E4C288 /* AVFoundationSampleUITests */,
 				F405CD7C2127BA8E00E4C288 /* Products */,
+				BB6C45957BB3EEE442367F0E /* Pods */,
+				01EAF0C79408AA03FA533BB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,9 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				F405CDAF2127BB2E00E4C288 /* supportFile */,
-				F405CD802127BA8E00E4C288 /* VedioPlayController.swift */,
 				F43F72E721281D2300F262B6 /* MenuTableViewController.swift */,
+				F405CD802127BA8E00E4C288 /* VedioPlayController.swift */,
 				F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */,
+				F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */,
 				F405CD822127BA8E00E4C288 /* Main.storyboard */,
 				F405CD8A2127BA9000E4C288 /* LaunchScreen.storyboard */,
 			);
@@ -158,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F405CDA62127BA9000E4C288 /* Build configuration list for PBXNativeTarget "AVFoundationSample" */;
 			buildPhases = (
+				3EA7D0DFD01F1725704BD769 /* [CP] Check Pods Manifest.lock */,
 				F405CD772127BA8E00E4C288 /* Sources */,
 				F405CD782127BA8E00E4C288 /* Frameworks */,
 				F405CD792127BA8E00E4C288 /* Resources */,
+				0A2E9CC6A484AC1F0C757C9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,11 +309,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A2E9CC6A484AC1F0C757C9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AVFoundationSample/Pods-AVFoundationSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AVFoundationSample/Pods-AVFoundationSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EA7D0DFD01F1725704BD769 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AVFoundationSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F405CD772127BA8E00E4C288 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48A6069212A5182000D00E1 /* CameraCaptureViewController.swift in Sources */,
 				F43F72E821281D2300F262B6 /* MenuTableViewController.swift in Sources */,
 				F405CD872127BA8E00E4C288 /* AVFoundationSample.xcdatamodeld in Sources */,
 				F405CD812127BA8E00E4C288 /* VedioPlayController.swift in Sources */,
@@ -460,6 +535,7 @@
 		};
 		F405CDA72127BA9000E4C288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D934B7D75B6D4CB81158438B /* Pods-AVFoundationSample.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YH8EP5Y8L;
@@ -473,11 +549,13 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = full;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		F405CDA82127BA9000E4C288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54C537978A96BE49D82C59B /* Pods-AVFoundationSample.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YH8EP5Y8L;
@@ -491,6 +569,7 @@
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = full;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

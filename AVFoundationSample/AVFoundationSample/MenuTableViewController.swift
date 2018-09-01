@@ -13,7 +13,7 @@ class MenuTableViewController: UITableViewController {
     let VCClassesId = [
         ("vedioPlayController","load vedio url,play veido"),
         ("VedioCompositionViewController"," vedio composition to a new vedio"),
-        ]
+        ("CameraCaptureViewController"," capture picture from camera")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
