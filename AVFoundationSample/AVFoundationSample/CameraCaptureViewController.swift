@@ -99,6 +99,7 @@ class CameraCaptureViewController: UIViewController {
             print("vedioInput init error\n")
         }
         
+        let output = AVCaptureVideoDataOutput.init()
         let  trVedioOutput = AVCaptureMovieFileOutput.init()
         if (captureSeesion?.canAddOutput(trVedioOutput))! {
             captureSeesion?.addOutput(trVedioOutput)
