@@ -13,7 +13,11 @@ class MenuTableViewController: UITableViewController {
     let VCClassesId = [
         ("vedioPlayController","load vedio url,play veido"),
         ("VedioCompositionViewController"," vedio composition to a new vedio"),
-        ("CameraCaptureViewController"," capture picture from camera")]
+        ("CameraCaptureViewController"," capture picture from camera"),
+        ("UIImagePickerController"," local vedio player "),
+        ("QRCodeScanViewController"," QRCode scan "),
+        ("ConstraintTestViewController"," Constraint Test ")
+        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,13 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if VCClassesId[indexPath.row].0 == "UIImagePickerController" {
+            let vc = UIImagePickerController.init()
+            vc.delegate = self
+            vc.sourceType = .savedPhotosAlbum
+            
+            return
+        }
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: VCClassesId[indexPath.row].0)
         vc.title = VCClassesId[indexPath.row].0
         navigationController?.pushViewController(vc, animated: true)
@@ -52,4 +63,22 @@ class MenuTableViewController: UITableViewController {
     }
     
 
+}
+
+extension MenuTableViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+    }
+    
 }

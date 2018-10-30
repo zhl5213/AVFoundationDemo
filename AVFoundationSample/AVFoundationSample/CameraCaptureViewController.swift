@@ -10,12 +10,14 @@ import UIKit
 import AVFoundation
 import Photos
 import MBProgressHUD
+import OpenGLES
 
 class CameraCaptureViewController: UIViewController {
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var recordTimeLabel: UILabel!
+    @IBOutlet var playerView: UIView!
     
     var captureSeesion:AVCaptureSession?
     
@@ -58,14 +60,12 @@ class CameraCaptureViewController: UIViewController {
     func getCameraAuthorizeToCapture() -> () {
   
         if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) != .authorized {
-            
             AVCaptureDevice.requestAccess(for: .video) { [unowned self] (success) in
-                
-                DispatchQueue.main.async(execute: {
-                    self.setCaptureConfigurationAndStartRunning()
-                })
-                
-                return
+                if success {
+                    DispatchQueue.main.async(execute: {
+                        self.setCaptureConfigurationAndStartRunning()
+                    })
+                }
             }
         }else {
             setCaptureConfigurationAndStartRunning()

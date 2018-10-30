@@ -16,12 +16,14 @@
 		F405CD8C2127BA9000E4C288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F405CD8A2127BA9000E4C288 /* LaunchScreen.storyboard */; };
 		F405CD972127BA9000E4C288 /* AVFoundationSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405CD962127BA9000E4C288 /* AVFoundationSampleTests.swift */; };
 		F405CDA22127BA9000E4C288 /* AVFoundationSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405CDA12127BA9000E4C288 /* AVFoundationSampleUITests.swift */; };
+		F41DF629217DD03A00F0705D /* ConstraintTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DF628217DD03A00F0705D /* ConstraintTestViewController.swift */; };
 		F430ECB72128107800123489 /* ElephantSeals.mov in Resources */ = {isa = PBXBuildFile; fileRef = F430ECB62128107700123489 /* ElephantSeals.mov */; };
 		F43F72E821281D2300F262B6 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F72E721281D2300F262B6 /* MenuTableViewController.swift */; };
 		F4824D892129359000C0C0F6 /* TestVedio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4824D882129359000C0C0F6 /* TestVedio.mp4 */; };
 		F4824D8B21295CD200C0C0F6 /* VedioCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */; };
 		F4824D8D212990E800C0C0F6 /* TestVedio2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4824D8C212990E600C0C0F6 /* TestVedio2.mp4 */; };
 		F48A6069212A5182000D00E1 /* CameraCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */; };
+		F4E8E580217729A90004EC02 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8E57F217729A90004EC02 /* QRCodeScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +61,14 @@
 		F405CD9D2127BA9000E4C288 /* AVFoundationSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVFoundationSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F405CDA12127BA9000E4C288 /* AVFoundationSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationSampleUITests.swift; sourceTree = "<group>"; };
 		F405CDA32127BA9000E4C288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F41DF628217DD03A00F0705D /* ConstraintTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintTestViewController.swift; sourceTree = "<group>"; };
 		F430ECB62128107700123489 /* ElephantSeals.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = ElephantSeals.mov; sourceTree = "<group>"; };
 		F43F72E721281D2300F262B6 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		F4824D882129359000C0C0F6 /* TestVedio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestVedio.mp4; sourceTree = "<group>"; };
 		F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedioCompositionViewController.swift; sourceTree = "<group>"; };
 		F4824D8C212990E600C0C0F6 /* TestVedio2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestVedio2.mp4; sourceTree = "<group>"; };
 		F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCaptureViewController.swift; sourceTree = "<group>"; };
+		F4E8E57F217729A90004EC02 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +145,9 @@
 				F4824D8A21295CD200C0C0F6 /* VedioCompositionViewController.swift */,
 				F48A6068212A5181000D00E1 /* CameraCaptureViewController.swift */,
 				F405CD822127BA8E00E4C288 /* Main.storyboard */,
+				F41DF628217DD03A00F0705D /* ConstraintTestViewController.swift */,
 				F405CD8A2127BA9000E4C288 /* LaunchScreen.storyboard */,
+				F4E8E57F217729A90004EC02 /* QRCodeScanViewController.swift */,
 			);
 			path = AVFoundationSample;
 			sourceTree = "<group>";
@@ -362,7 +368,9 @@
 				F48A6069212A5182000D00E1 /* CameraCaptureViewController.swift in Sources */,
 				F43F72E821281D2300F262B6 /* MenuTableViewController.swift in Sources */,
 				F405CD872127BA8E00E4C288 /* AVFoundationSample.xcdatamodeld in Sources */,
+				F4E8E580217729A90004EC02 /* QRCodeScanViewController.swift in Sources */,
 				F405CD812127BA8E00E4C288 /* VedioPlayController.swift in Sources */,
+				F41DF629217DD03A00F0705D /* ConstraintTestViewController.swift in Sources */,
 				F4824D8B21295CD200C0C0F6 /* VedioCompositionViewController.swift in Sources */,
 				F405CD7F2127BA8E00E4C288 /* AppDelegate.swift in Sources */,
 			);
@@ -540,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YH8EP5Y8L;
 				INFOPLIST_FILE = "$(SRCROOT)/AVFoundationSample/supportFile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,6 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YH8EP5Y8L;
 				INFOPLIST_FILE = "$(SRCROOT)/AVFoundationSample/supportFile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
