@@ -65,7 +65,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="435"/>
+            <point key="canvasLocation" x="556" y="366"/>
+        </scene>
+        <!--Code Scan View Controller-->
+        <scene sceneID="Sz2-wx-hgd">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeScanViewController" id="Gip-3u-I6K" customClass="QRCodeScanViewController" customModule="AVFoundationSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cTn-ru-R8B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OKc-8G-b7R"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TmX-tN-SIy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XS-i3-6dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342" y="366"/>
         </scene>
         <!--Vedio Composition View Controller-->
         <scene sceneID="F74-VZ-cAr">
@@ -149,6 +165,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NXh-xP-6Jo">
+                                <rect key="frame" x="10" y="129" width="355" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="up"/>
+                                    <segment title="down"/>
+                                    <segment title="left"/>
+                                    <segment title="right"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="视频方向" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rN-jx-Sv9">
+                                <rect key="frame" x="16" y="100" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="osq-Lg-Udw"/>
@@ -156,7 +189,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEa-N8-5cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="1227"/>
+            <point key="canvasLocation" x="556" y="1233"/>
+        </scene>
+        <!--Constraint Test View Controller-->
+        <scene sceneID="rLH-cq-25D">
+            <objects>
+                <viewController storyboardIdentifier="ConstraintTestViewController" id="m6s-tG-KCc" customClass="ConstraintTestViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f7c-42-ndE" customClass="EAGLView" customModule="AVFoundationSample" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="n1a-rP-ck9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XUB-5H-xNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240.8" y="1237.3313343328336"/>
         </scene>
         <!--Menu-->
         <scene sceneID="Mxx-6F-IvE">
@@ -202,6 +250,7 @@
                         <segue destination="BYZ-38-t0r" kind="push" identifier="vedioPlayController" id="Rvp-qA-HDC"/>
                         <segue destination="0TK-Fd-7Ae" kind="push" id="qmo-Au-PXA"/>
                         <segue destination="GxV-RK-1mh" kind="push" id="Xn9-Ne-p7Z"/>
+                        <segue destination="Gip-3u-I6K" kind="push" identifier="QRCodeScanViewController" id="JNb-2n-QXc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJn-sH-1Um" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,6 +315,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eae-PS-w4z"/>
                     <connections>
+                        <outlet property="playerView" destination="jRD-9B-w5M" id="fFS-lV-1Hk"/>
                         <outlet property="recordButton" destination="Ik1-6P-4ig" id="SH8-Sh-DIQ"/>
                         <outlet property="recordTimeLabel" destination="KUm-uC-TLq" id="HMT-s3-XhW"/>
                         <outlet property="replayButton" destination="IJA-kj-a8m" id="fbM-E6-Dvj"/>
