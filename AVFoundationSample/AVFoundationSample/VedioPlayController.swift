@@ -19,9 +19,13 @@ class VedioPlayController: UIViewController {
     @IBOutlet weak var playProgressSlider: UISlider!
     
 
-    let avAsset = AVAsset.init(url: Bundle.main.url(forResource: "TestVedio", withExtension: "mp4")!)
+//    let avAsset = AVAsset.init(url: Bundle.main.url(forResource: "TestVedio", withExtension: "mp4")!)
+    let url:URL = URL.init(string: "https://vdse.bdstatic.com//0ce574b077682f7525f666fd9700f088?authorization=bce-auth-v1/fb297a5cc0fb434c971b8fa103e8dd7b/2017-05-11T09:02:31Z/-1//d2ed31351b2f374a92f888d18bfeaf7e7ad7594a2dc2a1e18ca5f91384a20a22")!
+
+    lazy var avAsset = AVAsset.init(url: url)
     
     @objc let player = AVPlayer.init()
+    
     @objc var playItem:AVPlayerItem? {
         didSet{
             self.player.replaceCurrentItem(with: self.playItem)
@@ -178,6 +182,7 @@ class VedioPlayController: UIViewController {
             self.playItem = AVPlayerItem.init(asset: self.avAsset)
         }
     }
+    
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
